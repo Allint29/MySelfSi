@@ -1,0 +1,7 @@
+{
+  "userSecretsId": "aspnet-SelfWebSite-422EB87F-CEB6-4549-B38F-587B4022FE1B",
+  "tools": {
+    "Microsoft.AspNetCore.Razor.Tools": "1.0.0-preview2-final",
+    "Microsoft.Extensions.SecretManager.Tools": "1.0.0-preview2-final"
+  }
+}
