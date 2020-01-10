@@ -1,7 +1,7 @@
 ﻿@page
 @model RegisterConfirmationModel
 @{
-    ViewData["Title"] = "Register confirmation";
+    ViewData["Title"] = "Подтвердите Вашу регистрацию";
 }
 
 <h1>@ViewData["Title"]</h1>
@@ -15,8 +15,11 @@
     }
     else
     {
-<p>
-        Please check your email to confirm your account.
-</p>
+        <p>
+            Please check your email to confirm your account.
+        </p>
+        <p>
+            Пожалуйста, пройдите по ссылке в направленном Вам письме для подтверждения регистрации.
+        </p>
     }
 }

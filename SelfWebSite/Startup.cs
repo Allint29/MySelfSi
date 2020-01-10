@@ -44,7 +44,13 @@ namespace SelfWebSite
                     ////////////////////////////////////////////////////////
                 })
                 //.AddRoles<IdentityRole>()
-                .AddEntityFrameworkStores<ApplicationDbContext>();
+                .AddEntityFrameworkStores<ApplicationDbContext>()
+                //если не включить дефолтный токен, то при idrentity восстановлении ругается, что нет дефолтного токен провайдера
+                .AddDefaultTokenProviders(); 
+
+
+                
+                
             //добавление своего кастомного ключа для на хранение токенов по времени
             services.AddTransient<CustomEmailConfirmationTokenProvider<IdentityUser>>();
             //////////////////////////////////////////////////////////
@@ -65,8 +71,11 @@ namespace SelfWebSite
             // using Microsoft.AspNetCore.Identity.UI.Services;
             // using WebPWrecover.Services;
             //подключение сервиса отсылки писем с подтверждением через SenderGreed
-            services.AddTransient<IEmailSender, EmailSender>();
-            services.Configure<AuthMessageSenderOptions>(Configuration);
+            //services.AddTransient<IEmailSender, EmailSender>();
+            //services.Configure<AuthMessageSenderOptions>(Configuration);
+            //использовал рассылку из метанит
+            services.AddTransient<IEmailSender, EmailService>();
+            services.Configure<EmailServiceOptions>(Configuration);
 
             //services.AddControllersWithViews();
             services.AddMvc();
